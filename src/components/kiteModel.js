@@ -87,7 +87,9 @@ export default function KiteModel({ lines = 2, span = 2.2, colors, tail = false,
     );
 }
 
+// ---- Helper components ----
 
+// Simple rod for spars
 function Rod({ from, to, radius = 0.01 }) {
     const geom = useMemo(() => new THREE.CylinderGeometry(radius, radius, 1, 12), [radius]);
     const [pos, quat, len] = useMemo(() => {
@@ -107,7 +109,7 @@ function Rod({ from, to, radius = 0.01 }) {
     );
 }
 
-
+// Quadratic curve as thin tube -> use Line2 for simplicity
 function Bridle({ from, mid, to }) {
     // Quadratic curve as thin tube -> use Line2 for simplicity
     const points = useMemo(() => {
@@ -132,7 +134,7 @@ function Bridle({ from, mid, to }) {
     );
 }
 
-
+// Simple ribbon tail
 function RibbonTail() {
     // Simple sinus tail as a line; visually light and cheap
     const pts = useMemo(() => {
